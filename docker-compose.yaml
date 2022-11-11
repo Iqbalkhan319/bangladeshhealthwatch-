@@ -1,6 +1,7 @@
 version: '3.7'
 services:
   backend:
+    container_name: bhw-db
     image: mysql:latest
     ports:
       - 3306:3306
@@ -12,6 +13,7 @@ services:
       - db-data:/var/lib/mysql
     restart: unless-stopped
   phpmyadmin:
+    container_name: bhw_pma
     image: phpmyadmin:latest
     ports:
       - 3000:80
@@ -19,6 +21,7 @@ services:
       PMA_HOST: backend
     restart: unless-stopped
   frontend:
+    container_name: bhw-app
     image: php-app:latest
     ports:
       - 5000:80
