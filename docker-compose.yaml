@@ -7,6 +7,7 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: Time@12345
       MYSQL_ROOT_HOST: '%'
+      MYSQL_DATABASE: "bhw"
     volumes:
       - db-data:/var/lib/mysql
     restart: unless-stopped
