@@ -1,7 +1,7 @@
 version: '3.7'
 services:
   backend:
-    container_name: bhw-db
+    container_name: bhw_backend
     image: mysql:latest
     ports:
       - 3306:3306
@@ -13,21 +13,18 @@ services:
       - db-data:/var/lib/mysql
     restart: unless-stopped
   phpmyadmin:
-    container_name: bhw_pma
+    container_name: bhw_phpmyadmin
     image: phpmyadmin:latest
     ports:
-      - 3000:80
+      - 3001:80
     environment:
       PMA_HOST: backend
     restart: unless-stopped
   frontend:
     container_name: bhw-app
-    image: php-app:latest
+    build: .
     ports:
-      - 5000:80
-    build:
-      context: .
-      dockerfile: "Dockerfile"
+      - 80:80
     depends_on: 
       - backend
 volumes:

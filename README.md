@@ -51,4 +51,12 @@ For Normal User
 Regard,
 Khandaker Maria Shabnam 
 
+#Create user
+create user bhw@'%' IDENTIFIED by 'Time@12345';
+#create database
+create database bhw;
+#grant previleges
+GRANT ALL PRIVILEGES ON bhw.* TO 'bhw'@'%';
+flush privileges
+
 
